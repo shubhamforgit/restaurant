@@ -1,6 +1,6 @@
 import { Button, Container, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-const AppNavbar = () => {
+const AppNavbar = (props) => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
@@ -20,6 +20,9 @@ const AppNavbar = () => {
                             <NavDropdown.Item><LinkContainer to="/add-pincode">
                                 <Nav.Link>Add Pincodes</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
+                            <NavDropdown.Item><LinkContainer to="/add-staff">
+                                <Nav.Link>Add Staff</Nav.Link>
+                            </LinkContainer></NavDropdown.Item>
                             <NavDropdown.Item><LinkContainer to="/add-info">
                                 <Nav.Link>Update Restaurant Information</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
@@ -34,6 +37,9 @@ const AppNavbar = () => {
                             <NavDropdown.Item><LinkContainer to="/add-pincode">
                                 <Nav.Link>Pincodes</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
+                            <NavDropdown.Item><LinkContainer to="/staff">
+                                <Nav.Link>Staff</Nav.Link>
+                            </LinkContainer></NavDropdown.Item>
                             <NavDropdown.Item><LinkContainer to="/add-info">
                                 <Nav.Link>Restaurant Information</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
@@ -43,7 +49,7 @@ const AppNavbar = () => {
                         <Navbar.Text>
                             Hi!
                         </Navbar.Text>
-                        <Button variant="outline-dark" style={{ marginLeft: "10px" }} onClick={() => alert("Logout!")}>Sign Out</Button>
+                        <Button variant="outline-dark" style={{ marginLeft: "10px" }} onClick={props.signOut}>Sign Out</Button>
                     </Nav>
                 </Navbar.Collapse>
             </Container>
