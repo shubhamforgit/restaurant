@@ -5,7 +5,6 @@ import './App.css';
 import AppNavbar from './components/AppNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppFooter from './components/AppFooter';
-import ComponentB from './components/ComponentB';
 import AddStaffDetail from './components/Staff/AddStaffDetail';
 import AddPincode from './components/pincode/AddPincode';
 import Login from './components/login/Login';
