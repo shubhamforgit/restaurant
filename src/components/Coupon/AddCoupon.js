@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Form, Button, Alert } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
+import { uploadCoupon, uploadImage } from "../../axios/Service";
 
 function AddCoupon(props) {
 
@@ -16,9 +17,13 @@ function AddCoupon(props) {
     function onImageUpload() {
         const formData = new FormData();
         formData.append("couponImage", formImage.selectedImage);
-        axios.post("https://food-app-timesinternet.herokuapp.com/api/staff/coupon/image", formData)
-            .then(resp => setimgid(resp.data.id))
-            .catch(err => console.log(err))
+        uploadImage(formData, (resp) => {
+            setimgid(resp.data.id)
+            setShowAlert(true)
+            setTimeout(() => {
+                setShowAlert(false)
+            }, 1500);
+        })
     };
 
     const [formValues, setFormValues] = useState(
@@ -39,14 +44,14 @@ function AddCoupon(props) {
     function addCoupon(event) {
         event.preventDefault();
         const postCoupon = { ...formValues, imageId: imgid }
-        axios.post('https://food-app-timesinternet.herokuapp.com/api/staff/coupon', postCoupon)
-            .then((response) => {
-                console.log(response);
-                setShowAlert(true)
-                setTimeout(() => {
-                    setShowAlert(false)
-                }, 1500);
-            })
+        uploadCoupon(postCoupon, (response) => {
+            console.log(response);
+            setShowAlert(true)
+            setTimeout(() => {
+                setShowAlert(false)
+            }, 1500);
+        })
+
         setFormValues({
             name: "",
             value: 15,
@@ -77,7 +82,7 @@ function AddCoupon(props) {
                 <h3 className='coupontitle'>Add Coupon</h3>
                 {showAlert &&
                     <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
-                        Staff Added!
+                        Uploaded!
                     </Alert>
                 }
                 <Form.Group className="mb-3" controlId="title">

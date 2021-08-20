@@ -30,8 +30,6 @@ const App = () => {
     logIn(email, password, (response) => {
       localStorage.setItem("token", response.data.token)
       setToken(response.data.token)
-    }, () => {
-      alert("Could Not Sign In!")
     })
   }
 
