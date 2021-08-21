@@ -55,8 +55,8 @@ function AddCoupon(props) {
         setFormValues({
             name: "",
             value: 15,
-            startingDate: "26-12-2021",
-            endingDate: "22-12-2022",
+            Date: "26-12-2021",
+            Date: "22-12-2022",
             minimumCartValue: 11,
             maxDiscount: "",
             maxPerUser: 4,
@@ -101,7 +101,7 @@ function AddCoupon(props) {
                     <Form.Control type="text" placeholder="Value..." name="maxDiscount" onChange={handleInputChange} value={formValues.maxDiscount} />
                 </Form.Group>
 
-                <Button variant="primary" type="submit" style={{ float: 'right' }} >
+                <Button variant="primary" type="submit" >
                     Add Coupon
                 </Button>
             </Form>

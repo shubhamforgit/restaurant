@@ -116,7 +116,7 @@ const UpdateRestaurant = () => {
                                 <Form.Label>State</Form.Label>
                                 <Form.Control type="text" name="state" onChange={handleInputChange} value={address.state} />
                             </Form.Group>
-                            <Button variant="primary" type="submit" style={{ float: 'right' }} >
+                            <Button variant="primary" type="submit" >
                                 Update
                             </Button>
                         </Form>

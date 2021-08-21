@@ -28,19 +28,19 @@ const AppNavbar = (props) => {
                             </LinkContainer></NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Preview Data" id="basic-nav-dropdown">
-                            <NavDropdown.Item><LinkContainer to="/add-item">
+                            <NavDropdown.Item><LinkContainer to="/menu">
                                 <Nav.Link>Menu</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
-                            <NavDropdown.Item><LinkContainer to="/add-coupon">
+                            <NavDropdown.Item><LinkContainer to="/coupons">
                                 <Nav.Link>Coupons</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
-                            <NavDropdown.Item><LinkContainer to="/add-pincode">
+                            <NavDropdown.Item><LinkContainer to="/pincode">
                                 <Nav.Link>Pincodes</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
                             <NavDropdown.Item><LinkContainer to="/staff">
                                 <Nav.Link>Staff</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
-                            <NavDropdown.Item><LinkContainer to="/add-info">
+                            <NavDropdown.Item><LinkContainer to="/info">
                                 <Nav.Link>Restaurant Information</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
                         </NavDropdown>

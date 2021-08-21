@@ -65,7 +65,7 @@ const AddStaffDetail = () => {
                         <option value="ROLE_MANAGER">Manager</option>
                     </Form.Select>
                 </Row>
-                <Button variant="primary" type="submit" style={{ float: 'right' }} >
+                <Button variant="primary" type="submit" >
                     Add Staff
                 </Button>
             </Form>

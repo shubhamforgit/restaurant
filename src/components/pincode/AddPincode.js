@@ -77,7 +77,7 @@ function AddPincode() {
                                 <Form.Label>Pincodes</Form.Label>
                                 <Form.Control  as="textarea" rows={3} name="pincodes" onChange={handleInputChange} value={formValues.pincodeString} />
                             </Form.Group>
-                            <Button variant="primary" type="submit" style={{ float: 'right' }} >
+                            <Button variant="primary" type="submit" >
                                 Update
                             </Button>
                         </Form>

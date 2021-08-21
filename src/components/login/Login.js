@@ -34,7 +34,7 @@ const Login = (props) => {
                     <Form.Label>Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" name="password" onChange={handleInputChange} value={formValues.password} />
                 </Form.Group>
-                <Button variant="primary" type="submit" style={{ float: 'right' }} >
+                <Button variant="primary" type="submit" >
                     Sign In
                 </Button>
             </Form>
