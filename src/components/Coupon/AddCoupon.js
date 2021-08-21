@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { uploadCoupon, uploadImage } from "../../axios/Service";
@@ -77,7 +77,7 @@ function AddCoupon(props) {
 
     return (
 
-        <div>
+        <div style={{ width: "50%", margin: "auto" }}>
             <Form onSubmit={addCoupon}>
                 <h3 className='coupontitle'>Add Coupon</h3>
                 {showAlert &&
@@ -90,11 +90,15 @@ function AddCoupon(props) {
                     <Form.Control type="text" placeholder="Coupon Code..." name="name" onChange={handleInputChange} value={formValues.name} />
                 </Form.Group>
 
-                <Form.Group controlId="formFile" className="mb-3">
+                <Row className="mb-3">
                     <Form.Label>Coupon Banner</Form.Label>
-                    <Form.Control onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
-                    <Button onClick={onImageUpload}>Upload</Button>
-                </Form.Group>
+                    <Col>
+                            <Form.Control onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
+                    </Col>
+                    <Col>
+                        <Button onClick={onImageUpload}>Upload</Button>
+                    </Col>
+                </Row>
 
                 <Form.Group className="mb-3" controlId="value">
                     <Form.Label>Coupon Discount Value</Form.Label>

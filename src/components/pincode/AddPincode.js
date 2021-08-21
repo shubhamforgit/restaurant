@@ -65,7 +65,7 @@ function AddPincode() {
         <>
             <div className="pincodeform">
                 <div className="pincode">
-                    <div style={{ width: "400px", margin: "auto" }}>
+                    <div style={{ width: "50%", margin: "auto" }}>
                         <Form onSubmit={addPincodes}>
                             <h3 className="pincodetitle">Add Pincodes</h3>
                             {showAlert &&

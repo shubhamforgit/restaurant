@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
+import { createStaff } from "../../axios/Service";
 
 
 const AddStaffDetail = () => {
@@ -24,21 +25,25 @@ const AddStaffDetail = () => {
 
     function addStaff(event) {
         event.preventDefault();
+        createStaff(formValues, (response) => {
+            console.log(response)
+            setShowAlert(true)
+            setTimeout(() => {
+                setShowAlert(false)
+            }, 1500);
+        })
         setFormValues({
             firstName: '',
             lastName: '',
             email: '',
             role: '',
         })
-        setShowAlert(true)
-        setTimeout(() => {
-            setShowAlert(false)
-        }, 1500);
+
     }
 
 
     return (
-        <div>
+        <div style={{ width: "50%", margin: "auto" }}>
             <h1>Add Staff</h1>
             {showAlert &&
                 <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>

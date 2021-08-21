@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Alert, Image } from "react-bootstrap";
+import { Form, Button, Alert, Image, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
@@ -82,7 +82,7 @@ const UpdateRestaurant = () => {
             <div className="updateresform">
                 <div className="updaterescoupon">
 
-                    <div style={{ width: "400px", margin: "auto" }}>
+                    <div style={{ width: "50%", margin: "auto" }}>
                         <Form onSubmit={updateDetails}>
                             <h3 className="pincodetitle">Update Restaurant Details</h3>
                             {showAlert &&
@@ -92,10 +92,16 @@ const UpdateRestaurant = () => {
                             }
                             <Form.Label>Restaurant Logo</Form.Label>
                             <Image id="output" src={formImage.selectedImage} />
-                            <Form.Group controlId="formFile" className="mb-3">
-                                <Form.Control onChange={imageInputHandler} type="file" accept="image/*" />
-                                <Button onClick={onImageUpload}>Update</Button>
-                            </Form.Group>
+
+                            <Row className="mb-3">
+                                <Col>
+                                    <Form.Control onChange={imageInputHandler} type="file" accept="image/*" />
+                                </Col>
+                                <Col>
+                                    <Button onClick={onImageUpload}>Update</Button>
+                                </Col>
+                            </Row>
+
                             <Form.Group className="mb-3" >
                                 <Form.Label>Address Line 1</Form.Label>
                                 <Form.Control type="text" name="line1" onChange={handleInputChange} value={address.line1} />

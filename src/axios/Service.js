@@ -4,6 +4,7 @@ import axios from "axios";
 const loginURL = "https://food-app-timesinternet.herokuapp.com/api/staff/login"
 const uploadCouponImageURL = "https://food-app-timesinternet.herokuapp.com/api/staff/coupon/image"
 const uploadCouponURL = "https://food-app-timesinternet.herokuapp.com/api/staff/coupon"
+const createStaffURL = "https://food-app-timesinternet.herokuapp.com/api/staff"
 
 export function logError(message) {
     console.log("Error! "+ message)
@@ -26,4 +27,10 @@ export function uploadCoupon(postCoupon, successCB, failureCB) {
     axios.post(uploadCouponURL, postCoupon)
         .then(successCB)
         .catch(logError("Coupon Upload Failed!"))
+}
+
+export function createStaff(data, successCB, failureCB) {
+    axios.post(createStaffURL, data)
+        .then(successCB)
+        .catch(logError("Could  not create staff!"))
 }
