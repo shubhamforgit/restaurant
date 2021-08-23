@@ -4,7 +4,7 @@ const Coupon = (props) => {
     return (
         <div>
             <Card style={{ width: '18rem', margin: "5px" }}>
-                <Card.Img variant="top" src={props.coupon.banner.mainUrl} style={{width: "18rem", height: "20rem"}} />
+                <Card.Img variant="top" src={props.coupon.banner.mainUrl} style={{width: "100%", height: "20rem"}} />
                 <Card.Body>
                     <Card.Subtitle>Coupon Code:</Card.Subtitle>
                     <Card.Title>{props.coupon.name}</Card.Title>
