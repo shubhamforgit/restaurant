@@ -116,7 +116,7 @@ function AddMenuItem(props) {
                             <Dropdown.Menu className="dropdown-menu ">
                                 {
                                     catval.map((val, index) => {
-                                        return <Dropdown.Item eventKey={val.id}>{val.name}</Dropdown.Item>
+                                        return <Dropdown.Item key={index} eventKey={val.id}>{val.name}</Dropdown.Item>
                                     })
                                 }
                             </Dropdown.Menu>

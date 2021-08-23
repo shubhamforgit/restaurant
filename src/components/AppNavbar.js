@@ -4,12 +4,20 @@ const AppNavbar = (props) => {
     return (
         <Navbar bg="light" expand="lg">
             <Container>
-                <Navbar.Brand><NavDropdown.Item><LinkContainer to="/">
+                <Navbar.Brand><LinkContainer to="/">
                     <Nav.Link>Restaurant!</Nav.Link>
-                </LinkContainer></NavDropdown.Item></Navbar.Brand>
+                </LinkContainer></Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
+                    <NavDropdown title="Orders" id="basic-nav-dropdown">
+                            <NavDropdown.Item><LinkContainer to="/present-orders">
+                                <Nav.Link>Present Orders</Nav.Link>
+                            </LinkContainer></NavDropdown.Item>
+                            <NavDropdown.Item><LinkContainer to="/my-history">
+                                <Nav.Link>My History</Nav.Link>
+                            </LinkContainer></NavDropdown.Item>
+                        </NavDropdown>
                         <NavDropdown title="Update Data" id="basic-nav-dropdown">
                             <NavDropdown.Item><LinkContainer to="/add-item">
                                 <Nav.Link>Add Menu Item</Nav.Link>

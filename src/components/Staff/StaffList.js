@@ -17,7 +17,7 @@ const StaffList= (props) => {
             {
                 staff.map((singleStaff, index) => {
                     return (
-                        <Staff staff={singleStaff}></Staff>
+                        <Staff key={index} staff={singleStaff}></Staff>
                     )
                 })
             }

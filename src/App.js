@@ -21,6 +21,8 @@ import AddMenuItem from './components/Menu/AddMenuItem';
 import MenuItemList from './components/Menu/MenuItemList';
 import MenuItems from './components/MenuItems/MenuItems.js';
 import ShowRestaurant from './components/restaurant/ShowRestraurant';
+import PresentOrders from './components/Orders/PresentOrders';
+import PastOrders from './components/Orders/PastOrders';
 
 
 if (typeof window !== 'undefined' && localStorage.getItem('token')) {
@@ -57,6 +59,8 @@ const App = () => {
         <AppNavbar signOut={signOut}></AppNavbar>
         <Switch>
           <Route exact path="/add-item" component={AddMenuItem} />
+          <Route exact path="/present-orders" component={PresentOrders} />
+          <Route exact path="/my-history" component={PastOrders} />
           <Route exact path="/add-coupon" component={AddCoupon} />
           <Route exact path="/add-pincode" component={AddPincode} />
           <Route exact path="/add-info" component={UpdateRestaurant} />
