@@ -16,6 +16,7 @@ import UpdateRestaurant from './components/restaurant/UpdateRestaurant';
 import ViewStaff from './components/Staff/ViewStaff';
 import StaffList from './components/Staff/StaffList';
 import ShowPincode from './components/pincode/ShowPincode';
+import CouponList from './components/Coupon/CouponList';
 
 if (typeof window !== 'undefined' && localStorage.getItem('token')) {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
@@ -56,7 +57,7 @@ const App = () => {
           <Route exact path="/add-info" component={UpdateRestaurant} />
           <Route exact path="/add-staff" component={AddStaffDetail} />
           <Route exact path="/menu" component={Home} />
-          <Route exact path="/coupons" component={Home} />
+          <Route exact path="/coupons" component={CouponList} />
           <Route exact path="/pincode" component={ShowPincode} />
           <Route exact path="/info" component={Home} />
           <Route exact path="/staff" component={StaffList} />
