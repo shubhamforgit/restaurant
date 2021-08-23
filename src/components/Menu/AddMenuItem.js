@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react"
 import { Form, Button, Dropdown } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-// import './MenuItems.css';
+// import './AddMenuItem.css';
 import axios from "axios";
 
-function MenuItems(props) {
+function AddMenuItem(props) {
     const [catval, setcatval] = useState([]);
     const [idval, setidval] = useState();
     const [imgidval, setimgidval] = useState();
@@ -139,4 +139,4 @@ function MenuItems(props) {
     )
 }
 
-export default MenuItems
+export default AddMenuItem
