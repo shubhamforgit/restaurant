@@ -13,7 +13,9 @@ const ShowPincode = () => {
                     return pincodeElement.pincode
                 });
 
-                pincodeArray.sort()
+                pincodeArray.sort(function(a, b) {
+                    return a - b;
+                  })
 
                 setPincodeArray(pincodeArray)
                 console.log(pincodeArray);
