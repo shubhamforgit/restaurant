@@ -17,6 +17,7 @@ import ViewStaff from './components/Staff/ViewStaff';
 import StaffList from './components/Staff/StaffList';
 import ShowPincode from './components/pincode/ShowPincode';
 import CouponList from './components/Coupon/CouponList';
+import MenuItems from './components/MenuItems/MenuItems';
 
 if (typeof window !== 'undefined' && localStorage.getItem('token')) {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
@@ -51,7 +52,7 @@ const App = () => {
       <>
         <AppNavbar signOut={signOut}></AppNavbar>
         <Switch>
-          <Route exact path="/add-item" component={Home} />
+          <Route exact path="/add-item" component={MenuItems} />
           <Route exact path="/add-coupon" component={AddCoupon} />
           <Route exact path="/add-pincode" component={AddPincode} />
           <Route exact path="/add-info" component={UpdateRestaurant} />
