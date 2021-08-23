@@ -17,7 +17,7 @@ import ViewStaff from './components/Staff/ViewStaff';
 import StaffList from './components/Staff/StaffList';
 import ShowPincode from './components/pincode/ShowPincode';
 import CouponList from './components/Coupon/CouponList';
-import MenuItems from './components/MenuItems/MenuItems';
+import MenuItems from './components/MenuItems/MenuItems.js';
 
 if (typeof window !== 'undefined' && localStorage.getItem('token')) {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
