@@ -1,29 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
-import Home from './Home';
 import './App.css';
-import AppNavbar from './components/AppNavbar';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AppFooter from './components/AppFooter';
-import AddStaffDetail from './components/Staff/AddStaffDetail';
-import AddPincode from './components/pincode/AddPincode';
 import Login from './components/login/Login';
 import { logIn } from './axios/Service';
 import HomePage from './components/Home/HomePage';
-import AddCoupon from './components/Coupon/AddCoupon';
 import axios from 'axios';
-import UpdateRestaurant from './components/restaurant/UpdateRestaurant';
-import ViewStaff from './components/Staff/ViewStaff';
-import StaffList from './components/Staff/StaffList';
-import ShowPincode from './components/pincode/ShowPincode';
-import CouponList from './components/Coupon/CouponList';
-import AddMenuItem from './components/Menu/AddMenuItem';
-import MenuItemList from './components/Menu/MenuItemList';
-import MenuItems from './components/MenuItems/MenuItems.js';
-import ShowRestaurant from './components/restaurant/ShowRestraurant';
-import PresentOrders from './components/Orders/PresentOrders';
-import PastOrders from './components/Orders/PastOrders';
-
 
 if (typeof window !== 'undefined' && localStorage.getItem('token')) {
   axios.defaults.headers.common['Authorization'] = localStorage.getItem('token');
@@ -54,30 +35,8 @@ const App = () => {
   if (!token) {
     return <Login signIn={signIn}></Login>
   } else {
-    return (
-      <>
-        <AppNavbar signOut={signOut}></AppNavbar>
-        <Switch>
-          <Route exact path="/add-item" component={AddMenuItem} />
-          <Route exact path="/present-orders" component={PresentOrders} />
-          <Route exact path="/my-history" component={PastOrders} />
-          <Route exact path="/add-coupon" component={AddCoupon} />
-          <Route exact path="/add-pincode" component={AddPincode} />
-          <Route exact path="/add-info" component={UpdateRestaurant} />
-          <Route exact path="/add-staff" component={AddStaffDetail} />
-          <Route exact path="/menu" component={MenuItemList} />
-          <Route exact path="/coupons" component={CouponList} />
-          <Route exact path="/pincode" component={ShowPincode} />
-          <Route exact path="/info" component={ShowRestaurant} />
-          <Route exact path="/staff" component={StaffList} />
-          <Route exact path="/" component={ShowRestaurant} />
-        </Switch>
-        <AppFooter></AppFooter>
-      </>
-    )
+    return <HomePage signOut={signOut}></HomePage>
   }
-
-
 }
 
 export default App;

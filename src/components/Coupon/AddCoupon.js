@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Form, Button, Alert, Row, Col } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import axios from 'axios';
 import { uploadCoupon, uploadImage } from "../../axios/Service";
 
 function AddCoupon(props) {
@@ -30,8 +29,8 @@ function AddCoupon(props) {
         {
             name: "",
             value: 15,
-            Date: "26-12-2021",
-            Date: "22-12-2022",
+            startingDate: "26-12-2021",
+            endingDate: "22-12-2022",
             minimumCartValue: 11,
             maxDiscount: "",
             maxPerUser: 4,
@@ -43,7 +42,7 @@ function AddCoupon(props) {
 
     function addCoupon(event) {
         event.preventDefault();
-        const postCoupon = { ...formValues, imageId: imgid }
+        const postCoupon = { ...formValues, imageId: imgid, maxDiscount: Number(formValues["maxDiscount"])  }
         uploadCoupon(postCoupon, (response) => {
             console.log(response);
             setShowAlert(true)
@@ -55,8 +54,8 @@ function AddCoupon(props) {
         setFormValues({
             name: "",
             value: 15,
-            Date: "26-12-2021",
-            Date: "22-12-2022",
+            startingDate: "26-12-2021",
+            endingDate: "22-12-2022",
             minimumCartValue: 11,
             maxDiscount: "",
             maxPerUser: 4,

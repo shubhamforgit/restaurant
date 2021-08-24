@@ -14,7 +14,6 @@ const PresentOrders = () => {
     }
 
     useEffect(() => {
-        alert("Useeffect of present orders")
         getOrders(resp => {
             let presentOrders = resp.data.filter(order => {
                 return order.status !== "PACKED" && order.status !== "DECLINED"
