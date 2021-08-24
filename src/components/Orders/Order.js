@@ -25,7 +25,7 @@ const Order = (props) => {
 
     return (
         <div>
-            <Card style={{ width: '18rem', margin: "5px", height: "100%" }}>
+            <Card border={status === "PENDING" ? "danger" : "success"} style={{ width: '18rem', margin: "5px", height: "100%" }}>
                 <Card.Body>
                     {showAlert &&
                         <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
