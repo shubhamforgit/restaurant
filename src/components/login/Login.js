@@ -22,7 +22,7 @@ const Login = (props) => {
         props.signIn(email, password)
     }
     return (
-        <div>
+        <div style={{width: "50%", margin: "auto"}}>
             <Form onSubmit={() => signIn(formValues.email, formValues.password)}>
                 <h3>Sign In</h3>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
