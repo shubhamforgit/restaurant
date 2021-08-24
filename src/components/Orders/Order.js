@@ -19,13 +19,14 @@ const Order = (props) => {
     })
 
     function statusChange(event) {
+        //alert("status changed!"+event.target.value)
         setStatus(event.target.value)
     }
 
 
     return (
         <div>
-            <Card border={status === "PENDING" ? "danger" : "success"} style={{ width: '18rem', margin: "5px", height: "100%" }}>
+            <Card border={status === "PENDING" || status === "DECLINED" ? "danger" : "success"} style={{ width: '18rem', margin: "5px", height: "100%" }}>
                 <Card.Body>
                     {showAlert &&
                         <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
@@ -44,6 +45,7 @@ const Order = (props) => {
                     {
                         props.showStatusDropdown &&
                         <Form.Select aria-label="Default select example" onChange={statusChange}>
+                            <option>Change Status</option>
                             {
                                 props.order.next?.map((item, index) => {
                                     return <option key={index} value={item}>{item}</option>
@@ -53,7 +55,7 @@ const Order = (props) => {
                     }
                     {
                         props.showSave &&
-                        <Button variant="primary" onClick={() => { setShowAlert(true); props.onSave(props.order.id, status) }}>save</Button>
+                        <Button variant="primary" onClick={() => {props.onSave(props.order.id, status) }}>save</Button>
                     }
                     <Button variant="primary" onClick={() => setModalShow(true)}>Expand</Button>
                 </Card.Body>

@@ -18,7 +18,7 @@ function AddMenuItem(props) {
 
     function addItem(event) {
         event.preventDefault();
-        alert("Submitted!" + " title: " + formValues.title + " category: " + formValues.category + " price: " + formValues.price + formValues.imgURL);
+        //alert("Submitted!" + " title: " + formValues.title + " category: " + formValues.category + " price: " + formValues.price + formValues.imgURL);
         const postdata = {
             name: formValues.title,
             actualPrice: Number(formValues.price),
