@@ -1,13 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { CardGroup, Spinner } from "react-bootstrap";
+import { CardGroup, Spinner, Alert } from "react-bootstrap";
 import Order from "./Order";
 
 const PastOrders = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [pastOrders, setPastOrders] = useState([])
-
+    const [errorOccured, setErrorOccured] = useState(false)
 
     useEffect(() => {
         axios.get("https://food-app-timesinternet.herokuapp.com/api/staff/order")
@@ -19,6 +19,10 @@ const PastOrders = () => {
             setPastOrders(pastOrders)
             setIsLoading(false)
         })
+        .catch((err) => {
+            setIsLoading(false)
+            setErrorOccured(true)
+        })
     }, [])
 
     if (isLoading) {
@@ -27,7 +31,13 @@ const PastOrders = () => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         )
-    } else {
+    } 
+    else if (errorOccured) {
+        return <Alert variant="danger">
+            Error Occured! (Get Request Failed)
+        </Alert>
+    } 
+    else {
         return (
             <div>
                 <h1>PastOrders</h1>

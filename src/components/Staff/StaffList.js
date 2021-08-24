@@ -1,18 +1,23 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Card, CardGroup, Spinner } from "react-bootstrap"
+import { Card, CardGroup, Spinner, Alert } from "react-bootstrap"
 import Staff from "./ViewStaff"
 
 const StaffList = (props) => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [staff, setStaff] = useState([])
+    const [errorOccured, setErrorOccured] = useState(false)
 
     useEffect(() => {
         axios.get("https://food-app-timesinternet.herokuapp.com/api/staff")
             .then((response) => {
                 setStaff(response.data)
                 setIsLoading(false)
+            })
+            .catch((err) => {
+                setIsLoading(false)
+                setErrorOccured(true)
             })
     }, [])
 
@@ -22,7 +27,13 @@ const StaffList = (props) => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         )
-    } else {
+    }
+    else if (errorOccured) {
+        return <Alert variant="danger">
+            Error Occured! (Get Request Failed)
+        </Alert>
+    } 
+    else {
         return (
             <CardGroup style={{ justifyContent: "center" }}>
                 {

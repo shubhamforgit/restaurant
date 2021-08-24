@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { ListGroup, Spinner } from "react-bootstrap";
+import { ListGroup, Spinner, Alert } from "react-bootstrap";
 
 const ShowPincode = () => {
 
     const [isLoading, setIsLoading] = useState(true)
     const [pincodeArray, setPincodeArray] = useState([])
+    const [errorOccured, setErrorOccured] = useState(false)
 
     useEffect(() => {
         axios.get("https://food-app-timesinternet.herokuapp.com/api/staff/pincode")
@@ -32,6 +33,10 @@ const ShowPincode = () => {
                 })
 
             })
+            .catch((err) => {
+                setIsLoading(false)
+                setErrorOccured(true)
+            })
     }, [])
 
     if (isLoading) {
@@ -40,7 +45,13 @@ const ShowPincode = () => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         )
-    } else {    
+    }
+    else if (errorOccured) {
+        return <Alert variant="danger">
+            Error Occured! (Get Request Failed)
+        </Alert>
+    } 
+    else {    
         return (
             <div style={{ width: "50%", margin: "auto" }}>
                 <h1>Your Restaurant delivers to the following Pincodes</h1>

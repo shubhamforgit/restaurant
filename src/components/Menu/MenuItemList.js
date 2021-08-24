@@ -1,17 +1,22 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { Card, CardGroup, Spinner } from "react-bootstrap"
+import { Card, CardGroup, Spinner, Alert } from "react-bootstrap"
 import MenuItem from "./MenuItem"
 
 const MenuItemList = (props) => {
     const [isLoading, setIsLoading] = useState(true)
     const [MenuItems, setMenuItems] = useState([])
+    const [errorOccured, setErrorOccured] = useState(false)
 
     useEffect(() => {
         axios.get("https://food-app-timesinternet.herokuapp.com/api/staff/item")
             .then(response => {
                 setMenuItems(response.data)
                 setIsLoading(false)
+            })
+            .catch((err) => {
+                setIsLoading(false)
+                setErrorOccured(true)
             })
     }, [])
 
@@ -21,7 +26,13 @@ const MenuItemList = (props) => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         )
-    } else {
+    }
+    else if (errorOccured) {
+        return <Alert variant="danger">
+            Error Occured! (Get Request Failed)
+        </Alert>
+    } 
+    else {
         return (
             <CardGroup style={{ justifyContent: "center" }}>
                 {
