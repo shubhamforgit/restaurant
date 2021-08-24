@@ -9,7 +9,7 @@ const Staff = (props) => {
                     <Card.Subtitle>First Name:</Card.Subtitle>
                     <Card.Text>{props.staff.firstName}</Card.Text>
                     <Card.Subtitle>Last Name: </Card.Subtitle>
-                    <Card.Text>{props.staff.firstName}</Card.Text>
+                    <Card.Text>{props.staff.lastName}</Card.Text>  
                     <Card.Subtitle>Email: </Card.Subtitle>
                     <Card.Text>{props.staff.email}</Card.Text>
                     <Card.Subtitle>Role: </Card.Subtitle>

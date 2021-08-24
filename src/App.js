@@ -70,7 +70,7 @@ const App = () => {
           <Route exact path="/pincode" component={ShowPincode} />
           <Route exact path="/info" component={ShowRestaurant} />
           <Route exact path="/staff" component={StaffList} />
-          <Route exact path="/" component={HomePage} />
+          <Route exact path="/" component={ShowRestaurant} />
         </Switch>
         <AppFooter></AppFooter>
       </>

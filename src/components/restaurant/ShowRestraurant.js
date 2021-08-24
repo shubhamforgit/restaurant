@@ -36,7 +36,7 @@ const ShowRestaurant = () => {
                         <Card.Subtitle>Email:</Card.Subtitle>
                         <Card.Title>{restaurantInfo?.restaurantDetail?.email}</Card.Title>
                         <Card.Subtitle>Address:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurant?.address?.line1}, {restaurantInfo?.restaurant?.address?.line2}</Card.Title>
+                        <Card.Title>{restaurantInfo?.restaurantDetail?.address?.line1}, {restaurantInfo?.restaurantDetail?.address?.line2}</Card.Title>
 
                         <Card.Subtitle>Pincode:</Card.Subtitle>
                         <Card.Title>{restaurantInfo?.restaurantDetail?.address?.pincode}</Card.Title>

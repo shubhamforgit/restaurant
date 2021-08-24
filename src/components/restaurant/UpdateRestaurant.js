@@ -49,7 +49,7 @@ const UpdateRestaurant = () => {
                 console.log(response.data);
                 setAddress(response.data.restaurantDetail.address)
                 setFormImage({
-                    selectedImage: response.data.logo.mainUrl
+                    selectedImage: response.data?.logo?.mainUrl
                 })
                 console.log(formImage.selectedImage);
             })
