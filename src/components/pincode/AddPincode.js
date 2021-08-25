@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Alert } from "react-bootstrap";
+import { Form, Button, Alert, Spinner } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 // import "./AddPincode.css"
 
 function AddPincode() {
-
+    const [isLoading, setIsLoading] = useState(true)
+    const [errorOccured, setErrorOccured] = useState(false)
     const [showAlert, setShowAlert] = useState(false);
 
     const [formValues, setformValues] = useState({
@@ -33,6 +34,11 @@ function AddPincode() {
                         pincodeString: pincodeArrayString
                     }
                 })
+                setIsLoading(false)
+            })
+            .catch((err) => {
+                setIsLoading(false)
+                setErrorOccured(true)
             })
     }, [])
 
@@ -59,7 +65,19 @@ function AddPincode() {
             pincodes: pincodes
         })
     }
-
+    if (isLoading) {
+        return (
+            <Spinner animation="border" role="status">
+                <span className="visually-hidden">Loading...</span>
+            </Spinner>
+        )
+    }
+    else if (errorOccured) {
+        return <Alert variant="danger">
+            Error Occured! (Get Request Failed)
+        </Alert>
+    }
+    else {
     return (
 
         <>
@@ -70,7 +88,7 @@ function AddPincode() {
                             <h3 className="pincodetitle">Add Pincodes</h3>
                             {showAlert &&
                                 <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
-                                    Staff Added!
+                                        Pincode Added!
                                 </Alert>
                             }
                             <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -86,6 +104,7 @@ function AddPincode() {
             </div>
         </>
     )
+    }
 }
 
 export default AddPincode;

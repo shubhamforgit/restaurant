@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Form, Button, Row, Col, Alert } from "react-bootstrap";
 import { createStaff } from "../../axios/Service";
 
@@ -40,7 +40,15 @@ const AddStaffDetail = () => {
         })
 
     }
-
+    // Dynamic Roles dropdown
+    const [roleval, setRoleval] = useState([]);
+    useEffect(() => {
+        axios.get("https://food-app-timesinternet.herokuapp.com/api/staff/role").then((res) => {
+            setRoleval(res.data)
+            console.log(res.data)
+        })
+            .catch(console.error());
+    }, [])
 
     return (
         <div style={{ width: "50%", margin: "auto" }}>
@@ -67,7 +75,12 @@ const AddStaffDetail = () => {
                     <Form.Label>Role</Form.Label>
                     <Form.Select name="role" className="me-sm-2" id="inlineFormCustomSelect" onChange={handleInputChange}>
                         <option>Select...</option>
-                        <option value="ROLE_MANAGER">Manager</option>
+                        {
+                            roleval.map((val, index) => {
+                                return <option key={index} value={val}>{val}</option>
+                            })
+                        }
+                        
                     </Form.Select>
                 </Row>
                 <Button variant="primary" type="submit" >
