@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { Form, Button, Dropdown } from "react-bootstrap";
+import { Form, Button, Dropdown, Row, Col, Alert } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './AddMenuItem.css';
 import axios from "axios";
@@ -8,6 +8,7 @@ function AddMenuItem(props) {
     const [catval, setcatval] = useState([]);
     const [idval, setidval] = useState();
     const [imgidval, setimgidval] = useState();
+    const [showAlert, setShowAlert] = useState(false);
     const [formValues, setFormValues] = useState({
         title: '',
         category: '',
@@ -28,9 +29,21 @@ function AddMenuItem(props) {
             imageId: imgidval
         }
         console.log(postdata)
-        axios.post("https://food-app-timesinternet.herokuapp.com/api/staff/item", postdata).then((res) => {
-            console.log(res);
-        })
+        axios.post("https://food-app-timesinternet.herokuapp.com/api/staff/item", postdata)
+            .then((res) => {
+                console.log(res);
+                setShowAlert(true)
+                setTimeout(() => {
+                    setShowAlert(false)
+                }, 1500);
+                setFormValues({
+                    title: '',
+                    category: '',
+                    price: '',
+                    imgURL: '',
+
+                })
+            })
             .catch(console.error());
 
     }
@@ -80,33 +93,48 @@ function AddMenuItem(props) {
     function imageInputHandler(event) {
         setFormImage({ selectedImage: event.target.files[0] });
     }
-    
+
     function onImageUpload() {
         const formData = new FormData();
         formData.append("itemImage", formImage.selectedImage);
         axios.post("https://food-app-timesinternet.herokuapp.com/api/staff/item/image", formData)
-            .then(resp => setimgidval(resp.data.id))
+            .then((resp) => {
+                setimgidval(resp.data.id)
+                setShowAlert(true)
+                setTimeout(() => {
+                    setShowAlert(false)
+                }, 1500);
+            })
             .catch(err => console.log(err))
     };
 
     return (
         <div className="menuitemform">
             <div className="menuitem">
-                <div style={{ width: "400px", margin: "auto" }}>
+                <div style={{ width: "50%", margin: "auto" }}>
                     <Form onSubmit={addItem}>
                         <h3 className="menuitemtitle">Add Menu Item</h3>
-
+                        {showAlert &&
+                            <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
+                                Uploaded!
+                            </Alert>
+                        }
                         <Form.Group className="mb-3" controlId="title">
                             <Form.Label>Item Name</Form.Label>
                             <Form.Control type="text" placeholder="Item Name..." name="title" onChange={handleInputChange} value={formValues.title} />
                         </Form.Group>
 
                         <Form.Group controlId="formFile" className="mb-3">
-                            <Form.Label>Default file input example</Form.Label>
-                            <Form.Control onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
-                            <Button onClick={onImageUpload}>Upload</Button>
+                            <Form.Label>Add Item Image</Form.Label>
+                            <Row className="mb-3">
+                                <Col>
+                                    <Form.Control onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
+                                </Col>
+                                <Col>
+                                    <Button onClick={onImageUpload}>Upload</Button>
+                                </Col>
+                            </Row>
                         </Form.Group>
-
 
                         <Dropdown onSelect={handleDropdownChange} style={{ marginBottom: "16px" }} >
                             <Dropdown.Toggle variant="success" id="category" >
@@ -127,7 +155,7 @@ function AddMenuItem(props) {
                             <Form.Control type="text" placeholder="Price..." name="price" onChange={handleInputChange} value={formValues.price} />
                         </Form.Group>
 
-                        <Button variant="primary" type="submit" style={{ float: 'right' }} >
+                        <Button variant="primary" type="submit">
                             Add Item
                         </Button>
                     </Form>

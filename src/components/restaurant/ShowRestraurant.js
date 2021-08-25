@@ -44,24 +44,24 @@ const ShowRestaurant = () => {
                     <Card.Img variant="top" src={restaurantInfo?.logo?.mainUrl} style={{ width: "100%", height: "20rem" }} />
                     <Card.Body>
                         <Card.Subtitle>Name</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.name}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.name}</Card.Text>
 
                         <Card.Subtitle>Email:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.email}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.email}</Card.Text>
                         <Card.Subtitle>Address:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.address?.line1}, {restaurantInfo?.restaurantDetail?.address?.line2}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.address?.line1}, {restaurantInfo?.restaurantDetail?.address?.line2}</Card.Text>
 
                         <Card.Subtitle>Pincode:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.address?.pincode}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.address?.pincode}</Card.Text>
                         <Card.Subtitle>City:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.address?.city}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.address?.city}</Card.Text>
                         <Card.Subtitle>State:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.address?.state}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.address?.state}</Card.Text>
 
                         <Card.Subtitle>Opening Time:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.openingTime}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.openingTime}</Card.Text>
                         <Card.Subtitle>ClosingTime:</Card.Subtitle>
-                        <Card.Title>{restaurantInfo?.restaurantDetail?.closingTime}</Card.Title>
+                        <Card.Text>{restaurantInfo?.restaurantDetail?.closingTime}</Card.Text>
 
                     </Card.Body>
                 </Card>

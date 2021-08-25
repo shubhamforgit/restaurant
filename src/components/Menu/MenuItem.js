@@ -7,11 +7,11 @@ const MenuItem = (props) => {
                 <Card.Img variant="top" src={props.menuItem.image.mainUrl} style={{width: "100%", height: "20rem"}} />
                 <Card.Body>
                     <Card.Subtitle>Item Name:</Card.Subtitle>
-                    <Card.Title>{props.menuItem.name}</Card.Title>
+                    <Card.Text>{props.menuItem.name}</Card.Text>
                     <Card.Subtitle>Item Price:</Card.Subtitle>
-                    <Card.Title>{props.menuItem.sellingPrice}</Card.Title>                    
+                    <Card.Text>{props.menuItem.sellingPrice}</Card.Text>                    
                     <Card.Subtitle>Item Category:</Card.Subtitle>
-                    <Card.Title>{props.menuItem.category.name}</Card.Title>
+                    <Card.Text>{props.menuItem.category.name}</Card.Text>
                 </Card.Body>
             </Card>
         </div>

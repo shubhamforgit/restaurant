@@ -20,21 +20,23 @@ const HomePage = (props) => {
     return (
         <>
             <AppNavbar signOut={props.signOut}></AppNavbar>
-            <Switch>
-                <Route exact path="/add-item" component={AddMenuItem} />
-                <Route exact path="/present-orders" component={PresentOrders} />
-                <Route exact path="/my-history" component={PastOrders} />
-                <Route exact path="/add-coupon" component={AddCoupon} />
-                <Route exact path="/add-pincode" component={AddPincode} />
-                <Route exact path="/add-info" component={UpdateRestaurant} />
-                <Route exact path="/add-staff" component={AddStaffDetail} />
-                <Route exact path="/menu" component={MenuItemList} />
-                <Route exact path="/coupons" component={CouponList} />
-                <Route exact path="/pincode" component={ShowPincode} />
-                <Route exact path="/info" component={ShowRestaurant} />
-                <Route exact path="/staff" component={StaffList} />
-                <Route exact path="/" component={ShowRestaurant} />
-            </Switch>
+            <main style={{marginTop: "1rem", marginBottom: "1rem"}}>
+                <Switch>
+                    <Route exact path="/add-item" component={AddMenuItem} />
+                    <Route exact path="/present-orders" component={PresentOrders} />
+                    <Route exact path="/my-history" component={PastOrders} />
+                    <Route exact path="/add-coupon" component={AddCoupon} />
+                    <Route exact path="/add-pincode" component={AddPincode} />
+                    <Route exact path="/add-info" component={UpdateRestaurant} />
+                    <Route exact path="/add-staff" component={AddStaffDetail} />
+                    <Route exact path="/menu" component={MenuItemList} />
+                    <Route exact path="/coupons" component={CouponList} />
+                    <Route exact path="/pincode" component={ShowPincode} />
+                    <Route exact path="/info" component={ShowRestaurant} />
+                    <Route exact path="/staff" component={StaffList} />
+                    <Route exact path="/" component={ShowRestaurant} />
+                </Switch>
+            </main>
             <AppFooter></AppFooter>
         </>
     )
