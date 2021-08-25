@@ -6,6 +6,7 @@ import axios from 'axios';
 const UpdateRestaurant = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [errorOccured, setErrorOccured] = useState(false)
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
 
     const [showAlert, setShowAlert] = useState(false);
     const [address, setAddress] = useState({
@@ -42,7 +43,14 @@ const UpdateRestaurant = () => {
                 }, 1500);
             }
             )
-            .catch(err => console.log(err))
+            .catch((err) => {
+
+                setShowErrorAlert(true)
+                setTimeout(() => {
+                    setShowErrorAlert(false)
+                }, 3000);
+
+            })
     };
 
     useEffect(() => {
@@ -80,8 +88,15 @@ const UpdateRestaurant = () => {
                 setTimeout(() => {
                     setShowAlert(false)
                 }, 1500);
-            }
-            )
+            })
+            .catch((err) => {
+
+                setShowErrorAlert(true)
+                setTimeout(() => {
+                    setShowErrorAlert(false)
+                }, 3000);
+
+            })
     }
     if (isLoading) {
         return (
@@ -107,6 +122,11 @@ const UpdateRestaurant = () => {
                                 {showAlert &&
                                     <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
                                         Updated!
+                                    </Alert>
+                                }
+                                {showErrorAlert &&
+                                    <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+                                        Update Request Failed !!
                                     </Alert>
                                 }
                                 <Form.Group className="mb-3" >

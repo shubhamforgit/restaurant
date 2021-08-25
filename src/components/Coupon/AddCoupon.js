@@ -6,6 +6,7 @@ import { uploadCoupon, uploadImage } from "../../axios/Service";
 function AddCoupon(props) {
 
     const [showAlert, setShowAlert] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
     const [imgid, setimgid] = useState()
     const [formImage, setFormImage] = useState({
         selectedImage: null
@@ -49,6 +50,13 @@ function AddCoupon(props) {
             setTimeout(() => {
                 setShowAlert(false)
             }, 1500);
+        }, (err) => {
+
+            setShowErrorAlert(true)
+            setTimeout(() => {
+                setShowErrorAlert(false)
+            }, 3000);
+
         })
 
         setFormValues({
@@ -82,6 +90,11 @@ function AddCoupon(props) {
                 {showAlert &&
                     <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
                         Uploaded!
+                    </Alert>
+                }
+                {showErrorAlert &&
+                    <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+                        Update Request Failed !!
                     </Alert>
                 }
                 <Form.Group className="mb-3" controlId="title">

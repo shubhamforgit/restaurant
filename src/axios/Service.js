@@ -26,11 +26,11 @@ export function uploadImage(formData, successCB, failureCB) {
 export function uploadCoupon(postCoupon, successCB, failureCB) {
     axios.post(uploadCouponURL, postCoupon)
         .then(successCB)
-        .catch(logError("Coupon Upload Failed!"))
+        .catch(failureCB)
 }
 
 export function createStaff(data, successCB, failureCB) {
     axios.post(createStaffURL, data)
         .then(successCB)
-        .catch(logError("Could  not create staff!"))
+        .catch(failureCB)
 }

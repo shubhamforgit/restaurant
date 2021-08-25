@@ -8,6 +8,7 @@ function AddPincode() {
     const [isLoading, setIsLoading] = useState(true)
     const [errorOccured, setErrorOccured] = useState(false)
     const [showAlert, setShowAlert] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
 
     const [formValues, setformValues] = useState({
         pincodeString: '',
@@ -53,6 +54,14 @@ function AddPincode() {
                     setShowAlert(false)
                 }, 1500);
             })
+            .catch((err) => {
+
+                setShowErrorAlert(true)
+                setTimeout(() => {
+                    setShowErrorAlert(false)
+                }, 3000);
+
+            })
     }
 
     function handleInputChange(event) {
@@ -91,6 +100,11 @@ function AddPincode() {
                                         Pincode Added!
                                 </Alert>
                             }
+                                {showErrorAlert &&
+                                    <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+                                        Update Request Failed !!
+                                    </Alert>
+                                }
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Pincodes</Form.Label>
                                 <Form.Control  as="textarea" rows={3} name="pincodes" onChange={handleInputChange} value={formValues.pincodeString} />

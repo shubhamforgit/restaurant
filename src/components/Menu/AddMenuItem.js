@@ -9,6 +9,8 @@ function AddMenuItem(props) {
     const [idval, setidval] = useState();
     const [imgidval, setimgidval] = useState();
     const [showAlert, setShowAlert] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
+
     const [formValues, setFormValues] = useState({
         title: '',
         category: '',
@@ -44,7 +46,14 @@ function AddMenuItem(props) {
 
                 })
             })
-            .catch(console.error());
+            .catch((err) => {
+
+                setShowErrorAlert(true)
+                setTimeout(() => {
+                    setShowErrorAlert(false)
+                }, 3000);
+
+            })
 
     }
 
@@ -105,7 +114,14 @@ function AddMenuItem(props) {
                     setShowAlert(false)
                 }, 1500);
             })
-            .catch(err => console.log(err))
+            .catch((err) => {
+
+                setShowErrorAlert(true)
+                setTimeout(() => {
+                    setShowErrorAlert(false)
+                }, 3000);
+
+            })
     };
 
     return (
@@ -117,6 +133,11 @@ function AddMenuItem(props) {
                         {showAlert &&
                             <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
                                 Uploaded!
+                            </Alert>
+                        }
+                        {showErrorAlert &&
+                            <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+                                Update Request Failed !!
                             </Alert>
                         }
                         <Form.Group className="mb-3" controlId="title">

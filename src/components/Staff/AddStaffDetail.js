@@ -13,6 +13,7 @@ const AddStaffDetail = () => {
         role: '',
     })
     const [showAlert, setShowAlert] = useState(false);
+    const [showErrorAlert, setShowErrorAlert] = useState(false);
 
     function handleInputChange(event) {
         setFormValues((prevState) => {
@@ -37,8 +38,16 @@ const AddStaffDetail = () => {
                 email: '',
                 role: '',
             })
-        })
-        
+        },
+            (err) => {
+
+                setShowErrorAlert(true)
+                setTimeout(() => {
+                    setShowErrorAlert(false)
+                }, 3000);
+
+            })
+
 
     }
     // Dynamic Roles dropdown
@@ -57,6 +66,11 @@ const AddStaffDetail = () => {
             {showAlert &&
                 <Alert variant="info" onClose={() => setShowAlert(false)} dismissible>
                     Staff Added!
+                </Alert>
+            }
+            {showErrorAlert &&
+                <Alert variant="danger" onClose={() => setShowErrorAlert(false)} dismissible>
+                    Update Request Failed !!
                 </Alert>
             }
             <Form onSubmit={addStaff}>
@@ -81,7 +95,7 @@ const AddStaffDetail = () => {
                                 return <option key={index} value={val}>{val}</option>
                             })
                         }
-                        
+
                     </Form.Select>
                 </Row>
                 <Button variant="primary" type="submit" >
