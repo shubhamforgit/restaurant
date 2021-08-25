@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Form, Button, Alert, Image, Row, Col,Spinner } from "react-bootstrap";
+import { Form, Button, Alert, Image, Row, Col, Spinner } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 
@@ -109,9 +109,14 @@ const UpdateRestaurant = () => {
                                         Updated!
                                     </Alert>
                                 }
-                                <Form.Label>Restaurant Logo</Form.Label>
-                                <Image id="output" src={formImage.selectedImage} />
+                                <Form.Group className="mb-3" >
+                                    <Form.Label>Restaurant Logo</Form.Label>
+                                </Form.Group>
+                                <Image style={{maxWidth: "50%", maxHeight: "50%"}} id="output" src={formImage.selectedImage} />
 
+                                <Form.Group className="mb-3" >
+                                    <Form.Label>Update Restaurant Logo</Form.Label>
+                                </Form.Group>                                
                                 <Row className="mb-3">
                                     <Col>
                                         <Form.Control onChange={imageInputHandler} type="file" accept="image/*" />

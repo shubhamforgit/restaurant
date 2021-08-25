@@ -41,7 +41,7 @@ const ShowRestaurant = () => {
         return (
             <>
                 <Card style={{ width: '50%', margin: "auto" }}>
-                    <Card.Img variant="top" src={restaurantInfo?.logo?.mainUrl} style={{ width: "100%", height: "20rem" }} />
+                    <Card.Img variant="top" src={restaurantInfo?.logo?.mainUrl} style={{ maxWidth: "50%", maxHeight: "50%", margin: "auto" }} />
                     <Card.Body>
                         <Card.Subtitle>Name</Card.Subtitle>
                         <Card.Text>{restaurantInfo?.restaurantDetail?.name}</Card.Text>

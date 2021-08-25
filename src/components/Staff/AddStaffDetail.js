@@ -31,13 +31,14 @@ const AddStaffDetail = () => {
             setTimeout(() => {
                 setShowAlert(false)
             }, 1500);
+            setFormValues({
+                firstName: '',
+                lastName: '',
+                email: '',
+                role: '',
+            })
         })
-        setFormValues({
-            firstName: '',
-            lastName: '',
-            email: '',
-            role: '',
-        })
+        
 
     }
     // Dynamic Roles dropdown
