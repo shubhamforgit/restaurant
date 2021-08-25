@@ -55,7 +55,7 @@ const AppNavbar = (props) => {
                     </Nav>
                     <Nav>
                         <Navbar.Text>
-                            Hi!
+                            Hi! {props.name}
                         </Navbar.Text>
                         <Button variant="outline-dark" style={{ marginLeft: "10px" }} onClick={props.signOut}>Sign Out</Button>
                     </Nav>

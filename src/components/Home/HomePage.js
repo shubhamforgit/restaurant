@@ -19,8 +19,8 @@ import PastOrders from '../Orders/PastOrders';
 const HomePage = (props) => {
     return (
         <>
-            <AppNavbar signOut={props.signOut}></AppNavbar>
-            <main style={{marginTop: "1rem", marginBottom: "1rem"}}>
+            <AppNavbar name={props.name} signOut={props.signOut}></AppNavbar>
+            <main style={{marginTop: "1rem", marginBottom: "1rem", minHeight: "180vh"}}>
                 <Switch>
                     <Route exact path="/add-item" component={AddMenuItem} />
                     <Route exact path="/present-orders" component={PresentOrders} />
@@ -37,7 +37,7 @@ const HomePage = (props) => {
                     <Route exact path="/" component={ShowRestaurant} />
                 </Switch>
             </main>
-            <AppFooter></AppFooter>
+            <AppFooter name={props.name}></AppFooter>
         </>
     )
 }

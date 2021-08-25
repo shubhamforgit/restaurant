@@ -13,13 +13,17 @@ if (typeof window !== 'undefined' && localStorage.getItem('token')) {
 const App = () => {
 
   const [token, setToken] = useState()
+  const [name, setName] = useState()
 
   useEffect(() => {
     setToken(localStorage.getItem("token") || undefined)
+    setName(localStorage.getItem("name") || undefined)
   }, [])
 
   function signIn(email, password) {
     logIn(email, password, (response) => {
+      setName(response.data.user.restaurant.restaurantDetail.name);
+      localStorage.setItem("name", response.data.user.restaurant.restaurantDetail.name)
       localStorage.setItem("token", response.data.token)
       setToken(response.data.token)
     })
@@ -35,7 +39,7 @@ const App = () => {
   if (!token) {
     return <Login signIn={signIn}></Login>
   } else {
-    return <HomePage signOut={signOut}></HomePage>
+    return <HomePage name={name} signOut={signOut}></HomePage>
   }
 }
 
