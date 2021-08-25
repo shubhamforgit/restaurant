@@ -70,7 +70,14 @@ function AddMenuItem(props) {
             setcatval(res.data)
             console.log(res.data)
         })
-            .catch(console.error());
+        .catch((err) => {
+
+            setShowErrorAlert(true)
+            setTimeout(() => {
+                setShowErrorAlert(false)
+            }, 3000);
+
+        });
     }, [])
 
 
