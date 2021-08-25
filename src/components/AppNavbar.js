@@ -10,7 +10,7 @@ const AppNavbar = (props) => {
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                    <NavDropdown title="Orders" id="basic-nav-dropdown">
+                        <NavDropdown title="Orders" id="basic-nav-dropdown">
                             <NavDropdown.Item><LinkContainer to="/present-orders">
                                 <Nav.Link>Present Orders</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
@@ -19,6 +19,9 @@ const AppNavbar = (props) => {
                             </LinkContainer></NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Update Data" id="basic-nav-dropdown">
+                            <NavDropdown.Item><LinkContainer to="/add-category">
+                                <Nav.Link>Add Category</Nav.Link>
+                            </LinkContainer></NavDropdown.Item>
                             <NavDropdown.Item><LinkContainer to="/add-item">
                                 <Nav.Link>Add Menu Item</Nav.Link>
                             </LinkContainer></NavDropdown.Item>
@@ -36,6 +39,9 @@ const AppNavbar = (props) => {
                             </LinkContainer></NavDropdown.Item>
                         </NavDropdown>
                         <NavDropdown title="Preview Data" id="basic-nav-dropdown">
+                            <NavDropdown.Item><LinkContainer to="/categories">
+                                <Nav.Link>Categories</Nav.Link>
+                            </LinkContainer></NavDropdown.Item>
                             <NavDropdown.Item><LinkContainer to="/menu">
                                 <Nav.Link>Menu</Nav.Link>
                             </LinkContainer></NavDropdown.Item>

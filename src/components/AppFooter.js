@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const AppFooter = (props) => {
     return (
-        <MDBFooter style={{backgroundColor: 'rgb(248,249,250)'}}  className='text-center text-lg-left'>
+        <MDBFooter style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }} className='text-center text-lg-left'>
             <MDBContainer className='p-4'>
                 <MDBRow>
                     <MDBCol lg='6' md='12' className='mb-4 mb-md-0'>
@@ -51,9 +51,7 @@ const AppFooter = (props) => {
 
             <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 &copy; {new Date().getFullYear()}{' '}
-                <a className='text-dark' href='https://mdbootstrap.com/'>
-                    MDBootstrap.com
-                </a>
+                {props.name}.com
             </div>
         </MDBFooter>
     );

@@ -15,13 +15,16 @@ import MenuItemList from '../Menu/MenuItemList';
 import ShowRestaurant from '../restaurant/ShowRestraurant';
 import PresentOrders from '../Orders/PresentOrders';
 import PastOrders from '../Orders/PastOrders';
+import AddCategory from '../category/AddCategory';
+import ShowCategory from '../category/ShowCategory';
 
 const HomePage = (props) => {
     return (
         <>
             <AppNavbar name={props.name} signOut={props.signOut}></AppNavbar>
-            <main style={{marginTop: "1rem", marginBottom: "1rem", minHeight: "180vh"}}>
+            <main style={{marginTop: "1rem", marginBottom: "1rem", minHeight: "80vh"}}>
                 <Switch>
+                    <Route exact path="/add-category" component={AddCategory} />
                     <Route exact path="/add-item" component={AddMenuItem} />
                     <Route exact path="/present-orders" component={PresentOrders} />
                     <Route exact path="/my-history" component={PastOrders} />
@@ -34,6 +37,7 @@ const HomePage = (props) => {
                     <Route exact path="/pincode" component={ShowPincode} />
                     <Route exact path="/info" component={ShowRestaurant} />
                     <Route exact path="/staff" component={StaffList} />
+                    <Route exact path="/categories" component={ShowCategory} />
                     <Route exact path="/" component={ShowRestaurant} />
                 </Switch>
             </main>
