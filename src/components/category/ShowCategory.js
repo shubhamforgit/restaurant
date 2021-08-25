@@ -15,7 +15,11 @@ const ShowCategory = () => {
                 setIsLoading(false)
                 console.log(res.data)
             })
-            .catch(console.error());
+            .catch((error) => {
+                console.log(error);
+                setIsLoading(false)
+                setErrorOccured(true)
+            });
     }, [])
 
     if (isLoading) {
