@@ -33,6 +33,11 @@ const StaffList = (props) => {
             Error Occured! (Get Request Failed)
         </Alert>
     } 
+    else if (staff.length==0) {
+        return <Alert variant="danger">
+            No Staff Data Available
+        </Alert>
+    } 
     else {
         return (
             <CardGroup style={{ justifyContent: "center" }}>

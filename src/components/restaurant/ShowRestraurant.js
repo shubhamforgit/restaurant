@@ -32,6 +32,11 @@ const ShowRestaurant = () => {
             Error Occured! (Get Request Failed)
         </Alert>
     } 
+    else if (restaurantInfo.length==0) {
+        return <Alert variant="danger">
+            No Restaurant Data Available
+        </Alert>
+    } 
     else {
         return (
             <>

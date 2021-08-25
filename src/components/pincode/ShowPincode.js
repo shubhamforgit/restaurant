@@ -51,6 +51,11 @@ const ShowPincode = () => {
             Error Occured! (Get Request Failed)
         </Alert>
     } 
+    else if (pincodeArray.length==0) {
+        return <Alert variant="danger">
+            No Pincodes Available
+        </Alert>
+    } 
     else {    
         return (
             <div style={{ width: "50%", margin: "auto" }}>

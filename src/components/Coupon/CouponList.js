@@ -28,11 +28,18 @@ const CouponList = () => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         )
-    } else if (errorOccured) {
+    } 
+    else if (errorOccured) {
         return <Alert variant="danger">
             Error Occured! (Get Request Failed)
         </Alert>
-    } else {
+    }
+    else if (coupons.length==0) {
+        return <Alert variant="danger">
+            No Coupons Available
+        </Alert>
+    }
+     else {
         return (
             <CardGroup style={{ justifyContent: "center" }}>
                 {

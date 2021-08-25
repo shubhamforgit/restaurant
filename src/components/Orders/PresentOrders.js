@@ -59,6 +59,11 @@ const PresentOrders = () => {
             Error Occured! (Get Request Failed)
         </Alert>
     } 
+    else if (presentOrders.length==0) {
+        return <Alert variant="danger">
+            No Orders Assigned
+        </Alert>
+    } 
     else {
         return (
             <div>

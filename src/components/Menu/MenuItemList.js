@@ -32,6 +32,11 @@ const MenuItemList = (props) => {
             Error Occured! (Get Request Failed)
         </Alert>
     } 
+    else if (MenuItems.length==0) {
+        return <Alert variant="danger">
+            No Menu Items Available
+        </Alert>
+    } 
     else {
         return (
             <CardGroup style={{ justifyContent: "center" }}>

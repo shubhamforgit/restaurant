@@ -37,6 +37,11 @@ const PastOrders = () => {
             Error Occured! (Get Request Failed)
         </Alert>
     } 
+    else if (pastOrders.length==0) {
+        return <Alert variant="danger">
+            No  Past Orders Available
+        </Alert>
+    } 
     else {
         return (
             <div>
