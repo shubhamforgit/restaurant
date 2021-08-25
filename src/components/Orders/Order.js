@@ -14,7 +14,7 @@ const Order = (props) => {
         if (index === items.length - 1) {
             itemString += " " + item.item.name + " x" + item.quantity
         } else {
-            itemString += " " + item.name + " x" + item.quantity + ","
+            itemString += " " + item.item.name + " x" + item.quantity + ","
         }
     })
 

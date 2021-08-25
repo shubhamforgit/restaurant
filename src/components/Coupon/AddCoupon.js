@@ -29,7 +29,7 @@ function AddCoupon(props) {
     const [formValues, setFormValues] = useState(
         {
             name: "",
-            value: 15,
+            value: "",
             startingDate: "26-12-2021",
             endingDate: "22-12-2022",
             minimumCartValue: 11,
@@ -43,7 +43,7 @@ function AddCoupon(props) {
 
     function addCoupon(event) {
         event.preventDefault();
-        const postCoupon = { ...formValues, imageId: imgid, maxDiscount: Number(formValues["maxDiscount"])  }
+        const postCoupon = { ...formValues, imageId: imgid, maxDiscount: Number(formValues["maxDiscount"]), value: Number(formValues["value"])  }
         uploadCoupon(postCoupon, (response) => {
             console.log(response);
             setShowAlert(true)
@@ -61,7 +61,7 @@ function AddCoupon(props) {
 
         setFormValues({
             name: "",
-            value: 15,
+            value: "",
             startingDate: "26-12-2021",
             endingDate: "22-12-2022",
             minimumCartValue: 11,
@@ -113,7 +113,12 @@ function AddCoupon(props) {
                 </Row>
 
                 <Form.Group className="mb-3" controlId="value">
-                    <Form.Label>Coupon Discount Value</Form.Label>
+                    <Form.Label>Coupon Discount %</Form.Label>
+                    <Form.Control type="text" placeholder="Value..." name="value" onChange={handleInputChange} value={formValues.value} />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="value">
+                    <Form.Label>Maximum Cart Discount</Form.Label>
                     <Form.Control type="text" placeholder="Value..." name="maxDiscount" onChange={handleInputChange} value={formValues.maxDiscount} />
                 </Form.Group>
 
