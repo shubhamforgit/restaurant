@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 const Order = (props) => {
 
     const [modalShow, setModalShow] = useState(false);
-    const [status, setStatus] = useState(props.order.status);
+    const [status, setStatus] = useState(props.order.stage);
     const [showAlert, setShowAlert] = useState(false);
 
     let itemString = "";
@@ -48,14 +48,14 @@ const Order = (props) => {
                             <option>Change Status</option>
                             {
                                 props.order.next?.map((item, index) => {
-                                    return <option key={index} value={item}>{item}</option>
+                                    return <option key={index} value={item.value}>{item.name}</option>
                                 })
                             }
                         </Form.Select>
                     }
                     {
                         props.showSave &&
-                        <Button variant="primary" onClick={() => {props.onSave(props.order.id, status) }}>save</Button>
+                        <Button variant="primary" onClick={() => {setShowAlert(true), props.onSave(props.order.id, status) }}>save</Button>
                     }
                     <Button variant="primary" onClick={() => setModalShow(true)}>Expand</Button>
                 </Card.Body>

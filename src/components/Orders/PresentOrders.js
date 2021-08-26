@@ -19,9 +19,10 @@ const PresentOrders = () => {
     }
 
     useEffect(() => {
+        alert("useeffect")
         getOrders(resp => {
             let presentOrders = resp.data.filter(order => {
-                return order.status !== "PACKED" && order.status !== "DECLINED"
+                return order.status !== "PACKED" && order.status !== "DECLINED" && order.status !== "COMPLETED" && order.status !== "CANCELED"
             })
             setPresentOrders(presentOrders)
             setIsLoading(false)

@@ -14,7 +14,7 @@ const PastOrders = () => {
         .then(resp => {
             console.log(resp.data)
             const pastOrders = resp.data.filter(order => {
-                return order.status === "PACKED" || order.status === "DECLINED"
+                return order.status === "PACKED" || order.status === "DECLINED" || order.status === "CANCELED" || order.status === "COMPLETED"
             })
             setPastOrders(pastOrders)
             setIsLoading(false)
