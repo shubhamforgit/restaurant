@@ -27,12 +27,12 @@ const Login = (props) => {
                 <h3>Sign In</h3>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" placeholder="Enter email" name="email" onChange={handleInputChange} value={formValues.email} />
+                    <Form.Control required type="email" placeholder="Enter email" name="email" onChange={handleInputChange} value={formValues.email} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" name="password" onChange={handleInputChange} value={formValues.password} />
+                    <Form.Control required type="password" placeholder="Password" name="password" onChange={handleInputChange} value={formValues.password} />
                 </Form.Group>
                 <Button variant="primary" type="submit" >
                     Sign In

@@ -107,7 +107,7 @@ function AddPincode() {
                                 }
                             <Form.Group className="mb-3" controlId="formBasicEmail">
                                 <Form.Label>Pincodes</Form.Label>
-                                <Form.Control  as="textarea" rows={3} name="pincodes" onChange={handleInputChange} value={formValues.pincodeString} />
+                                <Form.Control required  as="textarea" rows={3} name="pincodes" onChange={handleInputChange} value={formValues.pincodeString} />
                             </Form.Group>
                             <Button variant="primary" type="submit" >
                                 Update

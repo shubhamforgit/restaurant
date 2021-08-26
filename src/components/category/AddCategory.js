@@ -60,7 +60,7 @@ function AddCategory() {
                         </Alert>
                     }
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Control name="name" onChange={handleInputChange} value={formValues.name} />
+                        <Form.Control required name="name" onChange={handleInputChange} value={formValues.name} />
                     </Form.Group>
                     <Button variant="primary" type="submit" >
                         Update

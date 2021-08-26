@@ -97,7 +97,7 @@ const AddStaffDetail = () => {
                 </Row>
                 <Row className="mb-3">
                     <Form.Label>Role</Form.Label>
-                    <Form.Select name="role" className="me-sm-2" id="inlineFormCustomSelect" onChange={handleInputChange}>
+                    <Form.Select required name="role" className="me-sm-2" id="inlineFormCustomSelect" onChange={handleInputChange}>
                         <option>Select...</option>
                         {
                             roleval.map((val, index) => {

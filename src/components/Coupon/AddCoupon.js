@@ -99,13 +99,13 @@ function AddCoupon(props) {
                 }
                 <Form.Group className="mb-3" controlId="title">
                     <Form.Label>Coupon Code</Form.Label>
-                    <Form.Control type="text" placeholder="Coupon Code..." name="name" onChange={handleInputChange} value={formValues.name} />
+                    <Form.Control required type="text" placeholder="Coupon Code..." name="name" onChange={handleInputChange} value={formValues.name} />
                 </Form.Group>
 
                 <Row className="mb-3">
                     <Form.Label>Coupon Banner</Form.Label>
                     <Col>
-                            <Form.Control onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
+                            <Form.Control required onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
                     </Col>
                     <Col>
                         <Button onClick={onImageUpload}>Upload</Button>
@@ -114,12 +114,12 @@ function AddCoupon(props) {
 
                 <Form.Group className="mb-3" controlId="value">
                     <Form.Label>Coupon Discount %</Form.Label>
-                    <Form.Control type="text" placeholder="Value..." name="value" onChange={handleInputChange} value={formValues.value} />
+                    <Form.Control required type="text" placeholder="Value..." name="value" onChange={handleInputChange} value={formValues.value} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="value">
                     <Form.Label>Maximum Cart Discount</Form.Label>
-                    <Form.Control type="text" placeholder="Value..." name="maxDiscount" onChange={handleInputChange} value={formValues.maxDiscount} />
+                    <Form.Control required type="text" placeholder="Value..." name="maxDiscount" onChange={handleInputChange} value={formValues.maxDiscount} />
                 </Form.Group>
 
                 <Button variant="primary" type="submit" >

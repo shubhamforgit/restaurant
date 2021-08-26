@@ -149,14 +149,14 @@ function AddMenuItem(props) {
                         }
                         <Form.Group className="mb-3" controlId="title">
                             <Form.Label>Item Name</Form.Label>
-                            <Form.Control type="text" placeholder="Item Name..." name="title" onChange={handleInputChange} value={formValues.title} />
+                            <Form.Control required type="text" placeholder="Item Name..." name="title" onChange={handleInputChange} value={formValues.title} />
                         </Form.Group>
 
                         <Form.Group controlId="formFile" className="mb-3">
                             <Form.Label>Add Item Image</Form.Label>
                             <Row className="mb-3">
                                 <Col>
-                                    <Form.Control onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
+                                    <Form.Control required onChange={imageInputHandler} type="file" accept="image/png, image/gif, image/jpeg" />
                                 </Col>
                                 <Col>
                                     <Button onClick={onImageUpload}>Upload</Button>
@@ -164,7 +164,7 @@ function AddMenuItem(props) {
                             </Row>
                         </Form.Group>
 
-                        <Dropdown onSelect={handleDropdownChange} style={{ marginBottom: "16px" }} >
+                        <Dropdown required onSelect={handleDropdownChange} style={{ marginBottom: "16px" }} >
                             <Dropdown.Toggle variant="success" id="category" >
                                 Category
                             </Dropdown.Toggle>
@@ -180,7 +180,7 @@ function AddMenuItem(props) {
 
                         <Form.Group className="mb-3" controlId="price">
                             <Form.Label>Item Price</Form.Label>
-                            <Form.Control type="text" placeholder="Price..." name="price" onChange={handleInputChange} value={formValues.price} />
+                            <Form.Control required type="text" placeholder="Price..." name="price" onChange={handleInputChange} value={formValues.price} />
                         </Form.Group>
 
                         <Button variant="primary" type="submit">

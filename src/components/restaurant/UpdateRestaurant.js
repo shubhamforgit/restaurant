@@ -139,7 +139,7 @@ const UpdateRestaurant = () => {
                                 </Form.Group>                                
                                 <Row className="mb-3">
                                     <Col>
-                                        <Form.Control onChange={imageInputHandler} type="file" accept="image/*" />
+                                        <Form.Control required onChange={imageInputHandler} type="file" accept="image/*" />
                                     </Col>
                                     <Col>
                                         <Button onClick={onImageUpload}>Update</Button>
@@ -148,23 +148,23 @@ const UpdateRestaurant = () => {
 
                                 <Form.Group className="mb-3" >
                                     <Form.Label>Address Line 1</Form.Label>
-                                    <Form.Control type="text" name="line1" onChange={handleInputChange} value={address.line1} />
+                                    <Form.Control required type="text" name="line1" onChange={handleInputChange} value={address.line1} />
                                 </Form.Group>
                                 <Form.Group className="mb-3" >
                                     <Form.Label>Address Line 2</Form.Label>
-                                    <Form.Control type="text" name="line2" onChange={handleInputChange} value={address.line2} />
+                                    <Form.Control required type="text" name="line2" onChange={handleInputChange} value={address.line2} />
                                 </Form.Group>
                                 <Form.Group className="mb-3" >
                                     <Form.Label>Pincode</Form.Label>
-                                    <Form.Control type="text" name="pincode" onChange={handleInputChange} value={address.pincode} />
+                                    <Form.Control required type="text" name="pincode" onChange={handleInputChange} value={address.pincode} />
                                 </Form.Group>
                                 <Form.Group className="mb-3" >
                                     <Form.Label>City</Form.Label>
-                                    <Form.Control type="text" name="city" onChange={handleInputChange} value={address.city} />
+                                    <Form.Control required type="text" name="city" onChange={handleInputChange} value={address.city} />
                                 </Form.Group>
                                 <Form.Group className="mb-3" >
                                     <Form.Label>State</Form.Label>
-                                    <Form.Control type="text" name="state" onChange={handleInputChange} value={address.state} />
+                                    <Form.Control required type="text" name="state" onChange={handleInputChange} value={address.state} />
                                 </Form.Group>
                                 <Button variant="primary" type="submit" >
                                     Update
