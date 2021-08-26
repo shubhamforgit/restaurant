@@ -9,7 +9,7 @@ const MenuItem = (props) => {
                     <Card.Subtitle>Item Name:</Card.Subtitle>
                     <Card.Text>{props.menuItem.name}</Card.Text>
                     <Card.Subtitle>Item Price:</Card.Subtitle>
-                    <Card.Text>{props.menuItem.sellingPrice}</Card.Text>                    
+                    <Card.Text>&#8377;{props.menuItem.sellingPrice}</Card.Text>                    
                     <Card.Subtitle>Item Category:</Card.Subtitle>
                     <Card.Text>{props.menuItem.category.name}</Card.Text>
                 </Card.Body>

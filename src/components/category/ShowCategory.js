@@ -42,7 +42,7 @@ const ShowCategory = () => {
     else {
         return (
             <div style={{ width: "50%", margin: "auto" }}>
-                <h1>Your Restaurant has the following categories</h1>
+                <h1>Your restaurant has the following categories</h1>
                 <ListGroup>
                     {
                         categoryArray.map(category => {

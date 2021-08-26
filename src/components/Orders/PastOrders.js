@@ -45,7 +45,7 @@ const PastOrders = () => {
     else {
         return (
             <div>
-                <h1>PastOrders</h1>
+                <h1>Past Orders</h1>
                 <CardGroup style={{ justifyContent: "center" }}>
     
                 {

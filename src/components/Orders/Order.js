@@ -34,17 +34,17 @@ const Order = (props) => {
                         </Alert>
                     }
 
-                    <Card.Subtitle>Items:</Card.Subtitle>
+                    <Card.Subtitle>Order Items:</Card.Subtitle>
                     <Card.Text>{itemString}</Card.Text>
                     <Card.Subtitle>Date: </Card.Subtitle>
                     <Card.Text>{props.order.updatedAt}</Card.Text>
-                    <Card.Subtitle>Total: </Card.Subtitle>
-                    <Card.Text>{props.order.total}</Card.Text>
+                    <Card.Subtitle>Order Total: </Card.Subtitle>
+                    <Card.Text>&#8377;{props.order.total}</Card.Text>
                     <Card.Subtitle>Status: </Card.Subtitle>
                     <Card.Text>{status}</Card.Text>
                     {
                         props.showStatusDropdown &&
-                        <Form.Select aria-label="Default select example" onChange={statusChange}>
+                        <Form.Select style={{marginBottom: "1rem"}} aria-label="Default select example" onChange={statusChange}>
                             <option>Change Status</option>
                             {
                                 props.order.next?.map((item, index) => {
@@ -55,9 +55,9 @@ const Order = (props) => {
                     }
                     {
                         props.showSave &&
-                        <Button variant="primary" onClick={() => {setShowAlert(true), props.onSave(props.order.id, status) }}>save</Button>
+                        <Button variant="primary" onClick={() => {setShowAlert(true), props.onSave(props.order.id, status) }}>Save</Button>
                     }
-                    <Button variant="primary" onClick={() => setModalShow(true)}>Expand</Button>
+                    <Button style={{marginLeft: "0.5rem"}} variant="primary" onClick={() => setModalShow(true)}>Expand</Button>
                 </Card.Body>
             </Card>
             <OrderDetailPopup

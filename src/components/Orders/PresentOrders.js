@@ -19,7 +19,6 @@ const PresentOrders = () => {
     }
 
     useEffect(() => {
-        alert("useeffect")
         getOrders(resp => {
             let presentOrders = resp.data.filter(order => {
                 return order.status !== "PACKED" && order.status !== "DECLINED" && order.status !== "COMPLETED" && order.status !== "CANCELED"
@@ -68,7 +67,7 @@ const PresentOrders = () => {
     else {
         return (
             <div>
-                <h1>PresentOrders</h1>
+                <h1>Present Orders</h1>
                 <CardGroup style={{ justifyContent: "center" }}>
     
                     {

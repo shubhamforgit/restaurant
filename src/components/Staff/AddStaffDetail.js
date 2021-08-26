@@ -83,10 +83,12 @@ const AddStaffDetail = () => {
             <Form onSubmit={addStaff}>
                 <Row className="mb-3">
                     <Col>
-                        <Form.Control required name="firstName" placeholder="First name" onChange={handleInputChange} value={formValues.firstName} />
+                        <Form.Label>First Name</Form.Label>
+                        <Form.Control required name="firstName" placeholder="First name..." onChange={handleInputChange} value={formValues.firstName} />
                     </Col>
                     <Col>
-                        <Form.Control required name="lastName" placeholder="Last name" onChange={handleInputChange} value={formValues.lastName} />
+                        <Form.Label>Last Name</Form.Label>
+                        <Form.Control required name="lastName" placeholder="Last name..." onChange={handleInputChange} value={formValues.lastName} />
                     </Col>
                 </Row>
                 <Row className="mb-3">

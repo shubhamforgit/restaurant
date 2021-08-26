@@ -59,7 +59,7 @@ const ShowPincode = () => {
     else {    
         return (
             <div style={{ width: "50%", margin: "auto" }}>
-                <h1>Your Restaurant delivers to the following Pincodes</h1>
+                <h1>Your restaurant delivers to the following pincodes</h1>
                 <ListGroup>
                     {
                         pincodeArray.map(pincode => {
