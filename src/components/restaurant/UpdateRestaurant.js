@@ -7,6 +7,10 @@ const UpdateRestaurant = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [errorOccured, setErrorOccured] = useState(false)
     const [showErrorAlert, setShowErrorAlert] = useState(false);
+    const [time, setTime] = useState({
+        openingTime: '',
+        closingTime: ''
+    });
 
     const [showAlert, setShowAlert] = useState(false);
     const [address, setAddress] = useState({
@@ -35,7 +39,7 @@ const UpdateRestaurant = () => {
     function onImageUpload() {
         const formData = new FormData();
         formData.append("logo", formImage.selectedImage);
-        axios.patch("https://food-app-timesinternet.herokuapp.com/api/staff/restaurant/logo", formData)
+        axios.patch("https://food-app-timesinternet.herokuapp.com/api/staff/restaurant/logo", {...formData, openingTime: time.openingTime, closingTime: time.closingTime})
             .then(response => {
                 setShowAlert(true)
                 setTimeout(() => {
@@ -58,6 +62,10 @@ const UpdateRestaurant = () => {
             .then(response => {
                 console.log(response.data);
                 setAddress(response.data.restaurantDetail.address)
+                setTime({
+                    openingTime: response.data.restaurantDetail.openingTime,
+                    closingTime: response.data.restaurantDetail.closingTime
+                })
                 setFormImage({
                     selectedImage: response.data?.logo?.mainUrl
                 })
