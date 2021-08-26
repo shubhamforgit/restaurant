@@ -139,7 +139,7 @@ const UpdateRestaurant = () => {
                                 </Form.Group>                                
                                 <Row className="mb-3">
                                     <Col>
-                                        <Form.Control required onChange={imageInputHandler} type="file" accept="image/*" />
+                                        <Form.Control onChange={imageInputHandler} type="file" accept="image/*" />
                                     </Col>
                                     <Col>
                                         <Button onClick={onImageUpload}>Update</Button>

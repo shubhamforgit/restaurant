@@ -37,13 +37,12 @@ const PresentOrders = () => {
             }
         )
             .then(
-                getOrders(resp => {
-                    let presentOrders = resp.data.filter(order => {
-                        return order.status !== "PACKED" && order.status !== "DECLINED"
-                    })
-                    setPresentOrders([...presentOrders])
-                })
+                setTimeout(() => {
+                    window.location.href = "/present-orders"
+
+                }, 1500)
             )
+            
 
     }
 
@@ -53,23 +52,23 @@ const PresentOrders = () => {
                 <span className="visually-hidden">Loading...</span>
             </Spinner>
         )
-    } 
+    }
     else if (errorOccured) {
         return <Alert variant="danger">
             Error Occured! (Get Request Failed)
         </Alert>
-    } 
-    else if (presentOrders.length==0) {
+    }
+    else if (presentOrders.length == 0) {
         return <Alert variant="danger">
             No Orders Assigned
         </Alert>
-    } 
+    }
     else {
         return (
             <div>
                 <h1>Present Orders</h1>
                 <CardGroup style={{ justifyContent: "center" }}>
-    
+
                     {
                         presentOrders.map((order, index) => {
                             return <Order onSave={onSave} order={order} key={index} showStatusDropdown={true} showSave={true}></Order>
@@ -79,7 +78,7 @@ const PresentOrders = () => {
             </div>
         )
     }
-    
+
 }
 
 export default PresentOrders
