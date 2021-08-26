@@ -39,7 +39,7 @@ const UpdateRestaurant = () => {
     function onImageUpload() {
         const formData = new FormData();
         formData.append("logo", formImage.selectedImage);
-        axios.patch("https://food-app-timesinternet.herokuapp.com/api/staff/restaurant/logo", {...formData, openingTime: time.openingTime, closingTime: time.closingTime})
+        axios.patch("https://food-app-timesinternet.herokuapp.com/api/staff/restaurant/logo", formData)
             .then(response => {
                 setShowAlert(true)
                 setTimeout(() => {
@@ -90,7 +90,7 @@ const UpdateRestaurant = () => {
 
     function updateDetails(event) {
         event.preventDefault()
-        axios.patch("https://food-app-timesinternet.herokuapp.com/api/staff/restaurant", { address: address })
+        axios.patch("https://food-app-timesinternet.herokuapp.com/api/staff/restaurant", { address: address, openingTime: time.openingTime, closingTime: time.closingTime })
             .then(response => {
                 setShowAlert(true)
                 setTimeout(() => {
